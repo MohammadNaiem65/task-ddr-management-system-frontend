@@ -79,12 +79,17 @@ export default function Form() {
 					disabled={!formDetails.startDate || !formDetails.endDate}
 					min={formDetails.startDate}
 					max={formDetails.endDate}
-					onChange={(e) =>
-						setFormDetails({
-							...formDetails,
-							excluded: [...formDetails.excluded, e.target.value],
-						})
-					}
+					onChange={(e) => {
+						if (!formDetails.excluded.includes(e.target.value)) {
+							setFormDetails({
+								...formDetails,
+								excluded: [
+									...formDetails.excluded,
+									e.target.value,
+								],
+							});
+						}
+					}}
 				/>
 			</div>
 
