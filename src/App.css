@@ -1,0 +1,5 @@
+td::before {
+  content: attr(data-cell);
+  display: flex;
+  justify-content: space-between;
+}
